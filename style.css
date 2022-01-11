@@ -30,6 +30,8 @@ body{
     align-items: center;
 }
 .outer-container{
+    max-width: 900px; 
+  
     display: flex;
     flex-direction: column;
     justify-content: center;
