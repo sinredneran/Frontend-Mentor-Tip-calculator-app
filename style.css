@@ -182,7 +182,7 @@ body{
 }
 
 /* error input*/
-.NOP-txt{
+.error-field .NOP-txt{
     display: flex;
     justify-content: space-between;
 }
