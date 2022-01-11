@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+
+<body>
+  <div class="outer-container">
+<header class="logo">
+  <img src="./images/logo.svg" alt="logo-splitter">
+</header>
+    <main class="container">
+      <div class="left-container">
+        <div class="bill">
+          <label for="bill-amount">Bill</label>
+          <div class="input-container">
+            <img class="dollar-icon icon" src="./images/icon-dollar.svg" alt="dollar icon">
+            <input id="bill-amount" class="input-1 custom-input" type="number" value="0" placeholder="0">
+          </div>
+        </div>
+        <div class="buttons">
+          <label for="tip-percentage-input">Select Tip %</label>
+          <div class="buttons-container">
+            <button class="btn" value="5" type="button">5%</button>
+            <button class="btn" value="10" type="button">10%</button>
+            <button class="btn" value="15" type="button">15%</button>
+            <button class="btn" value="25" type="button">25%</button>
+            <button class="btn" value="50" type="button">50%</button>
+            <input id="tip-percentage-input" class="input-2 custom-input" type="number" placeholder="Custom">
+          </div>
+        </div>
+        <div class="NOP">
+          <label for="number-of-people-input" class="NOP-txt">Number of People <span class="error-txt hidden-txt">Can't be zero</span></label>
+          <div class="NOP-container input-container ">
+            <img class="icon person-icon" src="./images/icon-person.svg" alt="person-icon">
+            <input id="number-of-people-input" type="number" class="input-3 custom-input" value="0" placeholder="0">
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="output-container">
+          <div class="output Tip-amount">
+            <p class="txt-2">Tip-amount <br> <span>/ person</span></p>
+            <p class="output-txt">
+              $<output class="tip-output num-output" value='0.00'>0.00</output>
+            </p>
+          </div>
+          <div class="output total">
+            <p class="txt-2">Total <br> <span>/ person</span></p>
+            <p class="output-txt">
+              $<output class="total-output num-output" value='0.00'>0.00</output>
+            </p>
+          </div>
+        </div>
+        <button class="reset disabled" type="reset">RESET</button>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.frontendmentor.io/profile/sinredneran">sinredneran</a>.
+    </footer>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
