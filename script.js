@@ -35,7 +35,7 @@ billAmount.addEventListener('input', () => {
 // percentage value setting P
 inputPercentage.addEventListener('input', () => {
     P = parseFloat(inputPercentage.value);
-    if (P < 0 || !P || P === Infinity) {
+    if (P < 0 || P === Infinity) {
         P = 0;
         console.log(`abe P`);
         return false;
