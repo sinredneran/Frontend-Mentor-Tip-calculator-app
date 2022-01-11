@@ -72,6 +72,7 @@ numberOfPeople.addEventListener('input', () => {
 
 // reset button setting
 resetBtn.addEventListener('click', () => {
+    console.log(`call karo ji`);
     billAmount.value = 0;
 
     billAmountValue = 0;
@@ -82,8 +83,13 @@ resetBtn.addEventListener('click', () => {
 
     E = 0;
     tipOutput.value = (0).toFixed(2);
+    tipOutput.innerText = tipOutput.value;
+    console.log(tipOutput.value + 'ww');
+    
     J = 0;
     totalOutput.value = (0).toFixed(2);
+    totalOutput.innerText = totalOutput.value;
+    console.log(totalOutput.value + 'tt');
 
     disabledBtn(1);
     console.log(`${billAmount.value}->BA ${NOP}->NOP ${P}->P ${tipOutput.value}->tip ${totalOutput.value}->total ${E}->E ${J}->J`);
