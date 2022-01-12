@@ -13,6 +13,8 @@
 </head>
 
 <body>
+  <div class="fake-btn">
+  </div>
   <div class="outer-container">
 <header class="logo">
   <img src="./images/logo.svg" alt="logo-splitter">
@@ -23,7 +25,7 @@
           <label for="bill-amount">Bill</label>
           <div class="input-container">
             <img class="dollar-icon icon" src="./images/icon-dollar.svg" alt="dollar icon">
-            <input id="bill-amount" class="input-1 custom-input" type="number" value="0" placeholder="0">
+            <input id="bill-amount" class="input-1 custom-input" type="number" value="0" placeholder="0" min="0">
           </div>
         </div>
         <div class="buttons">
@@ -34,14 +36,14 @@
             <button class="btn" value="15" type="button">15%</button>
             <button class="btn" value="25" type="button">25%</button>
             <button class="btn" value="50" type="button">50%</button>
-            <input id="tip-percentage-input" class="input-2 custom-input" type="number" placeholder="Custom">
+            <input id="tip-percentage-input" class="input-2 custom-input" type="number" placeholder="Custom" min="0">
           </div>
         </div>
         <div class="NOP">
           <label for="number-of-people-input" class="NOP-txt">Number of People <span class="error-txt hidden-txt">Can't be zero</span></label>
           <div class="NOP-container input-container ">
             <img class="icon person-icon" src="./images/icon-person.svg" alt="person-icon">
-            <input id="number-of-people-input" type="number" class="input-3 custom-input" value="0" placeholder="0">
+            <input id="number-of-people-input" type="number" class="input-3 custom-input" value="0" placeholder="0" min="0">
           </div>
         </div>
       </div>
