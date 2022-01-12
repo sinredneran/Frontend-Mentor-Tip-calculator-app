@@ -2,12 +2,11 @@
 P = percentage / 100 
 N = number of person
 E = (Tip amount per person ) = ( bill * P ) / N
-// TipOutput = (Math.floor(((billAmount * P) / N) * 100)) / 100;
 TotalOutput = (total amount paid by each person) = ( bill / N ) + E
 */
 const billAmount = document.querySelector('.input-1');
-const numberOfPeople = document.querySelector('.input-3');
 const inputPercentage = document.querySelector('.input-2');
+const numberOfPeople = document.querySelector('.input-3');
 const btn = document.querySelectorAll('.btn');
 const resetBtn = document.querySelector('.reset');
 const errorField = document.querySelector('.NOP');
@@ -33,26 +32,47 @@ billAmount.addEventListener('input', () => {
 // bill input setting
 
 // percentage value setting P
+// // input percentage
 inputPercentage.addEventListener('input', () => {
     P = parseFloat(inputPercentage.value);
+    deSelect(-1);
     if (P < 0 || P === Infinity) {
         P = 0;
-        console.log(`abe P`);
         return false;
     }
     else {
         calc();
     }
 });
-
+// // pecentage button
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', () => {
-        P = parseFloat(btn[i].value);
-        inputPercentage.value = 'Custom';
+        if(!btn[i].classList.contains('selected')){
+            P = parseFloat(btn[i].value);
+            calc();
+        }
+        else{
+            P = 0;
+            calc();
+        }
         calc();
+        deSelect(i);
+        inputPercentage.value = null;
     });
 }
-// percentage value setting P
+// // // percentage deselect
+function deSelect(selectedBtn) {
+    console.log(selectedBtn);
+    for (let i = 0; i < btn.length; i++) {
+        if(i===selectedBtn){
+            continue
+           }
+        btn[i].classList.remove('selected');
+    }
+    if(selectedBtn != -1){
+        btn[selectedBtn].classList.toggle('selected');
+    }
+}
 
 // number of person setting NOP
 numberOfPeople.addEventListener('input', () => {
@@ -72,27 +92,26 @@ numberOfPeople.addEventListener('input', () => {
 
 // reset button setting
 resetBtn.addEventListener('click', () => {
-    console.log(`call karo ji`);
     billAmount.value = 0;
 
     billAmountValue = 0;
-    P = 'Custom';
+    P = null;
     NOP = 0;
-    inputPercentage.value = 'Custom';
+    inputPercentage.value = P;
     numberOfPeople.value = NOP;
 
-    E = 0;
-    tipOutput.value = (0).toFixed(2);
-    tipOutput.innerText = tipOutput.value;
-    console.log(tipOutput.value + 'ww');
-    
-    J = 0;
-    totalOutput.value = (0).toFixed(2);
-    totalOutput.innerText = totalOutput.value;
-    console.log(totalOutput.value + 'tt');
+    // E = 0;
+    // tipOutput.value = (0).toFixed(2);
+    // tipOutput.innerText = tipOutput.value;
+    // console.log(tipOutput.value + 'ww');
 
-    disabledBtn(1);
-    console.log(`${billAmount.value}->BA ${NOP}->NOP ${P}->P ${tipOutput.value}->tip ${totalOutput.value}->total ${E}->E ${J}->J`);
+    // J = 0;
+    // totalOutput.value = (0).toFixed(2);
+    // totalOutput.innerText = totalOutput.value;
+    // console.log(totalOutput.value + 'tt');
+
+    deSelect(-1);
+    calc();
 });
 // overall calc
 function calc() {
@@ -107,7 +126,7 @@ function calcTip() {
         E = 0;
         tipOutput.value = E.toFixed(2);
         tipOutput.innerText = tipOutput.value;
-       disabledBtn(1);
+        disabledBtn(1);
         return false;
     }
     else {
@@ -141,12 +160,10 @@ function disabledBtn(N) {
     if (N == 1) {
         resetBtn.classList.add('disabled');
         resetBtn.disabled = true;
-        console.log('reset Btn disabled');
     }
     else {
         resetBtn.disabled = false;
         resetBtn.classList.remove('disabled');
-        console.log(`reset btn enabled`);
     }
 }
 // disabled reset button setting
